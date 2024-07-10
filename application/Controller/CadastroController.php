@@ -83,9 +83,7 @@ class CadastroController
      */
     public function editCadastro($cadastro_id)
     {
-        
         if (isset($cadastro_id)) {
-            if 
           
             $Cadastro = new Cadastro();
         
@@ -104,15 +102,22 @@ class CadastroController
     {
     
         if (isset($_POST["submit_update_cadastro"])) {
-     
-            $Cadastro = new Cadastro();
-         
-            $Cadastro->updateCadastro($_POST["nome"],$_POST["email"],$_POST["CPF"], $_POST["cadastro_id"]);
-        }
+            $nome = $_POST["nome"];
+            $email = $_POST["email"];
+            $cpf = $_POST["CPF"];
 
-  
-        header('location: ' . URL . 'cadastro/index');
-    }
+            if ($this->validaCPF($cpf)) {
+          
+                $Cadastro = new Cadastro();
+              
+                $Cadastro->updateCadastro($_POST["nome"],$_POST["email"],$_POST["CPF"], $_POST["cadastro_id"]);
+
+                header('location: ' . URL . 'cadastro/index');
+            } else {
+
+                echo "CPF inválido!";
+            }
+            }}
 
  
     public function ajaxGetStats()
@@ -124,4 +129,4 @@ class CadastroController
         echo $amount_of_cadastros;
     }
 
-}//teset
+}
