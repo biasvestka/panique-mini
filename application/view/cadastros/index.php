@@ -1,3 +1,9 @@
+<?php
+if (isset($_GET['error']) && $_GET['error'] == 'invalid_cpf') {
+    echo "<script>alert('CPF inválido! Por favor insira um CPF válido.');</script>";
+}
+?>
+
 <div class="container">
     <h1>Cadastros</h1>
     <h2>You are in the View: application/view/cadastros/index.php (everything in this box comes from that file)</h2>
