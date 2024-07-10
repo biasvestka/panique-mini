@@ -25,3 +25,4 @@ class ErrorController
         require APP . 'view/_templates/footer.php';
     }
 }
+//teste
