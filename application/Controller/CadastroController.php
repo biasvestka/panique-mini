@@ -57,8 +57,7 @@ class CadastroController
 
                 header('location: ' . URL . 'cadastro/index');
             } else {
-
-                echo "CPF inválido!";
+                header('location: ' . URL . 'cadastro/index?error=invalid_cpf');
             }
             }}
     /**
@@ -105,6 +104,7 @@ class CadastroController
             $nome = $_POST["nome"];
             $email = $_POST["email"];
             $cpf = $_POST["CPF"];
+            $cadastro_id = $_POST["cadastro_id"];
 
             if ($this->validaCPF($cpf)) {
           
@@ -115,7 +115,7 @@ class CadastroController
                 header('location: ' . URL . 'cadastro/index');
             } else {
 
-                echo "CPF inválido!";
+                header('location: ' . URL . 'cadastro/editCadastro/' . $cadastro_id . '?error=invalid_cpf');
             }
             }}
 
@@ -130,3 +130,4 @@ class CadastroController
     }
 
 }
+?>
