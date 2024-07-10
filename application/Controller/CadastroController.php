@@ -124,4 +124,4 @@ class CadastroController
         echo $amount_of_cadastros;
     }
 
-}
+}//teset
